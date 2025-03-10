@@ -1,3 +1,7 @@
+/* Container */
+
+
+
 /* our story*/
 .story-heading {
   color: dark-gray; /* Dark gray */
@@ -68,4 +72,22 @@
   /* height: 539px; */
   height: auto; /* Adjust height dynamically */
   position: relative;
+}
+
+/* Clients section*/
+
+.client-heading {
+  text-align: center;
+  padding-top: -100px; /* Adjust as needed */
+  position: relative;
+}
+
+.client-heading h3 {
+  color: gray;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  top: -30px; /* Moves the heading higher */
 }

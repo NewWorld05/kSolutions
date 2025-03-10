@@ -158,3 +158,21 @@
 .product-card:hover {
   transform: translateY(-10px);
 }
+
+/* Clients section*/
+
+.client-heading {
+  text-align: center;
+  padding-top: -100px; /* Adjust as needed */
+  position: relative;
+}
+
+.client-heading h3 {
+  color: gray;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  top: -30px; /* Moves the heading higher */
+}

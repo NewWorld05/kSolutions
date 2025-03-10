@@ -1,12 +1,21 @@
 /* Clients section*/
-.client-heading h3 {
-  color: darkgrey; /* Dark gray */
-  font-weight: 700; /* Bold */
-  letter-spacing: -2px; /* Reduce spacing */
-  margin-bottom: 0; /* Remove bottom margin */
-  padding: 30px;
 
+.client-heading {
+  text-align: center;
+  padding-top: -100px; /* Adjust as needed */
+  position: relative;
 }
+
+.client-heading h3 {
+  color: gray;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  top: -30px; /* Moves the heading higher */
+}
+
 
 /* img ._250-x-250-keits-logo-1250x250{
   max-width: 50%; 
@@ -18,17 +27,17 @@
 
 /* Left Column (Image) */
 
-.container-ani {
+/* .container-ani {
     display: flex;
     width: 100%;
     height: 680px;
-  }
+  } */
 
-.left-column-p {
+/* .left-column-p {
     width: 50%;
-    background: url('images/istockphoto-1449550428-1024x1024.jpg') no-repeat center center;
+    background: url('images1/istockphoto-1449550428-1024x1024.jpg') no-repeat center center;
     background-size: cover;
-  }
+  } */
   
   /* Right Column (Text & Icons) */
   .right-column-p {
