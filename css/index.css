@@ -41,11 +41,11 @@
   
   /* Right Column (Text & Icons) */
   .right-column-p {
-    width: 50%;
+    /* width: 100%;  */
     /* background: #000d51; */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     padding: 20px;
     color: grey;
@@ -55,8 +55,8 @@
   .text-icons-p {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    align-items: center;
+    gap: 20px;
+    align-items: flex-start;
     text-align: left;
   }
   
@@ -70,28 +70,32 @@
   /* Icons and Text Layout */
   .icon-text-p {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
+    flex-wrap: wrap; /* Prevent breaking */
   }
   
+  /* Icon Resizing */
   .icon-text-p img {
     width: 28px;
     height: 28px;
-    position: relative;
-    top: -15px
+    /* position: relative;
+    top: -15px */
   }
   
+  /*  Text Styling  */
   .frame-405 {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
+    max-width: 100%;
   }
   
   .tangible-results, 
   .custom-built-technology, 
   .cross-industry-expertise
   .end-to-end-support {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     color: rgb(102, 99, 95);
   }
@@ -102,6 +106,7 @@
     font-size: 16px;
     opacity: 0.8;
     max-width: 400px;
+    /* line-height: 1.4; */
   }
 
   .shape-image-animation {
@@ -110,6 +115,43 @@
     left: 0;
     width: 100%;
     z-index: 1; /* Ensure it's above the background */
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 768px) {
+  /* 🟢 Stack Left & Right Columns */
+  .left-column-p, .right-column-p {
+      width: 100% !important;
+      text-align: center;
+      align-items: center;
+  }
+
+  /* 🟢 Keep Icon Next to Heading */
+  .icon-text-p {
+      display: flex;
+      align-items: center; /* ✅ Forces icon & text to stay on the same line */
+      gap: 10px; /* Adjust spacing */
+      text-align: left;
+      flex-wrap: nowrap; /* ✅ Prevents text from breaking to next line */
+  }
+
+  /* 🟢 Ensure Icon Doesn't Shrink */
+  .icon-text-p img {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0; /* ✅ Stops the icon from resizing incorrectly */
+      vertical-align: middle; /* ✅ Ensures it aligns properly with text */
+  }
+
+  /* 🟢 Adjust Font Sizes for Mobile */
+  .tangible-results {
+      font-size: 18px;
+      white-space: nowrap; /* ✅ Stops text from breaking onto a new line */
+  }
+
+  .over-r-3-million-in-client-savings-through-operational-and-digital-transformation {
+      font-size: 14px;
+  }
 }
 
 
@@ -217,3 +259,28 @@
   margin-top: auto;
 }
 
+
+
+/* Global Scaling Fix (Keeps Navbar & Content Responsive) */
+html {
+  font-size: 14px; /* Adjusts everything proportionally */
+}
+
+body {
+  transform: none; /* Removes problematic scaling */
+  zoom: 0.9; /* Fixes the enlarged appearance */
+}
+
+/* Navbar Fix (Ensures Visibility on Scroll) */
+.navbar {
+  position: fixed; /* Ensures navbar remains visible */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Footer Fix (Removes Extra Space Below) */
+footer {
+  margin-bottom: 0; /* Ensures no extra space */
+  padding-bottom: 10px; /* Adjust for proper spacing */
+}
