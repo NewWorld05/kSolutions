@@ -30,12 +30,12 @@
             <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse glass-effect" data-header-hover="light">
                 <div class="container-fluid">
                     <div class="col-auto col-xxl-3 col-lg-2 me-lg-0 me-auto">
-                        <a class="navbar-brand d-flex align-items-center" href="#">
-                            <img src="images1/logo-black.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-                            <span style=" font-size: 20px; color: black;">KZD Solutions</span>
+                        <a class="navbar-brand d-flex align-items-center me-2" href="#">
+                            <img id="logo" src="images1/logo-white.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                            <span id="company-name" class="fs-5 fs-md-4 fs-lg-3" style="color: white;">KZD Solutions</span>
                         </a>
-
                     </div>
+
                     <div class="col-auto col-xxl-6 col-lg-8 menu-order position-static">
                         <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
                             <span class="navbar-toggler-line"></span>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-auto col-xxl-3 col-lg-2 text-end d-none d-sm-flex">
                         <div class="header-icon">
-                            <div class="header-button"><a href="contact.html" class="btn btn-large btn-transparent-white-light btn-rounded text-transform-none border-1">Get in Touch<i class="fa-solid fa-arrow-right"></i></a></div>
+                            <div id="getInTouch" class="header-button"><a href="contact.html" class="btn btn-large btn-transparent-white-light btn-rounded text-transform-none border-1">Get in Touch<i class="fa-solid fa-arrow-right"></i></a></div>
                         </div>  
                     </div>
                 </div>
@@ -283,7 +283,22 @@
             <div class="col-6 col-xl-3 col-lg-3 col-md-3 col-sm-4 xs-mb-30px order-sm-5 order-lg-4">
                 <span class="fw-600 d-block text-dark-gray mb-5px">Need help?</span>
                 <span>Call us directly?</span>
-                <span class="d-block mb-10px"><a class="text-dark-gray fw-600" href="tel:1235678901">(071) 589 1082</a></span>
+                <span class="d-block mb-10px"><a class="text-dark-gray fw-600" href="#" onclick="openCallWindow()"> (071) 589 1082 </a>
+
+                    <script>
+                        function openCallWindow() {
+                            const whatsappCall = "https://wa.me/27715891082/?call";
+                            const phoneCall = "tel:+27715891082";
+                    
+                            // Check if WhatsApp is available (mobile users)
+                            if (navigator.userAgent.toLowerCase().includes("android") || navigator.userAgent.toLowerCase().includes("iphone")) {
+                                window.open(whatsappCall, "_blank"); // Opens WhatsApp Call in a new tab
+                            } else {
+                                window.open(phoneCall, "_blank"); // Opens phone call in a new tab (won't work on some browsers)
+                            }
+                        }
+                    </script>
+                </span>
                 <span>Need support?</span>
                 <a href="mailto:info@kzdsolutions.co.za" class="text-dark-gray fw-600">info@kzdsolutions.co.za</a>
             </div>
@@ -318,5 +333,47 @@
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA56KqSJ11nQUw_tXgXyNMiPmQeM7EaSA&callback=initMap"></script>
         <script type="text/javascript" src="js/main.js"></script>
+
+        <!-- navbar logo color change start -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const logo = document.getElementById("logo");
+            const companyName = document.getElementById("company-name");
+            const getInTouchBtn = document.querySelector("#getInTouch a"); // Target the button
+
+                function updateNavbar() {
+                    const isScrolled = window.scrollY > 50;
+                    const isMobile = window.innerWidth < 992; // Bootstrap's `lg` breakpoint
+
+                    if (isMobile) {
+                        // Always black on mobile
+                        logo.src = "images1/logo-black.png";
+                        companyName.style.color = "black";
+                        getInTouchBtn.classList.remove("btn-transparent-white-light");
+                        getInTouchBtn.classList.add("btn-dark"); // Change to dark button
+                    } else {
+                        // Change based on scroll on larger screens
+                        if (isScrolled) {
+                            logo.src = "images1/logo-black.png";
+                            companyName.style.color = "black";
+                            getInTouchBtn.classList.remove("btn-transparent-white-light");
+                            getInTouchBtn.classList.add("btn-dark"); // Dark button on scroll
+                        } else {
+                            logo.src = "images1/logo-white.png";
+                            companyName.style.color = "white";
+                            getInTouchBtn.classList.remove("btn-dark");
+                            getInTouchBtn.classList.add("btn-transparent-white-light"); // White button at top
+                        }
+                    }
+                }
+
+                // Run on page load and resize
+                updateNavbar();
+                window.addEventListener("scroll", updateNavbar);
+                window.addEventListener("resize", updateNavbar);
+            });
+        </script>
+        <!-- navbar logo color change end -->
+
     </body>
 </html>
