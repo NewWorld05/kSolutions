@@ -5,7 +5,7 @@ if( ! empty( $_POST['email'] ) ) {
 	$enable_smtp = 'no'; // yes OR no
 
 	// Email Receiver Address
-	$receiver_email = 'kwenza05@gmail.com';
+	$receiver_email = 'info@kzdsolutions.co.za';
 
 	// Email Receiver Name for SMTP Email
 	$receiver_name 	= 'Your Name';
